@@ -1,0 +1,27 @@
+h1 {
+    color: cornflowerblue;
+    font-size: 75px;
+    text-align: center;
+}
+
+.board {
+    display: grid;
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    width: 250px;
+    grid-template-columns: auto auto auto;
+    border: 10px solid black;
+    border-radius: 14px;
+    background-color: aqua;
+}
+
+.board-item {
+    background-color: lightblue;
+    border: 1px solid black;
+    padding: 20px;
+    font-size: 35px;
+    text-align: center
+}

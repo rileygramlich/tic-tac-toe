@@ -1,3 +1,9 @@
+body {
+    width:100vw;
+    height:100vh;
+    position: relative;
+}
+
 h1 {
     color: cornflowerblue;
     font-size: 75px;
@@ -23,5 +29,16 @@ h1 {
     border: 1px solid black;
     padding: 20px;
     font-size: 35px;
-    text-align: center
+    text-align: center;
+    cursor: pointer;
+}
+
+button {
+    position: fixed;
+    text-align: center;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    background-color: darkred;
+    font-size: 50px;
 }

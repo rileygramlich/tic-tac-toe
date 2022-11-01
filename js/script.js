@@ -2,16 +2,6 @@
 console.log('connected')
 
 /*----- constants -----*/
-const players = {
-    'X': {
-        name: '',
-        moves: 0
-    },
-    'O': {
-        name: '',
-        moves: 0
-    }
-};
 
 /*----- app's state (variables) -----*/
 let board = [
@@ -52,29 +42,14 @@ buttonEl.addEventListener('click', function() {
 
 
 /*----- functions -----*/
-// function addX(event) {
-//     console.log('Adding an X')
-//     console.log(x, y)
-//     board[x][y] = 'X'
-//     return
-// }
-
-// function addO(event) {
-//     board[x][y] = 'Y'
-//     return
-// }
-
 function makeMove(event) {
     console.log('clicked')
     event.preventDefault
     let item = event.target
     let coords = item.id.split('-')
     if (item.tagName !== 'DIV') return
-    console.log(item.id)
-    console.log(coords)
     let x = coords[0]
     let y = coords[1]
-    console.log(turn)
     if (board[x][y] !== null) {
         return
     } else {
@@ -92,14 +67,9 @@ function makeMove(event) {
 }
 
 function render(event) {
-    // let item = event.target
-    // console.log(board)
-    // console.log(boardItemEls)
     document.getElementById('0-0').innerText = board[0][0]
     board.forEach(function(row, x) {
         row.forEach(function(square, y) {
-            // console.log(square)
-            // console.log(x, y)
             document.getElementById(`${x}-${y}`).innerText = board[x][y]
         })
     })

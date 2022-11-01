@@ -26,38 +26,30 @@ let turn = 'X'
 // Initialize winner to null
 let winner = null
 
-let boardItemEls = document.querySelectorAll('.board')
 
 /*----- cached element references -----*/
 // store the board item elements in a variable so we can manipulate with event listeners
+let boardItemEls = document.querySelectorAll('.board')
+let boardEl = document.querySelector('.board')
+let buttonEl = document.querySelector('#replay-btn')
+let turnEl = document.querySelector('#display-turn')
+
+console.log(buttonEl)
 
 
-document.querySelector('.board').addEventListener('click', function(event) {
+/*----- event listeners -----*/
+// Clicking on a board item changes that board item to X:
+boardEl.addEventListener('click', function(event) {
     makeMove(event)
     console.log(board)
     render()
 })
 
-// board[0][0] = document.getElementById('0-0').
-// board[0][1] = document.getElementById('0-1')
-// board[0][2] = document.getElementById('0-2')
-// board[1][0] = document.getElementById('1-0')
-// board[1][1] = document.getElementById('1-1')
-// board[1][2] = document.getElementById('1-2')
-// board[2][0] = document.getElementById('2-0')
-// board[2][1] = document.getElementById('2-1')
-// board[2][2] = document.getElementById('2-2')
+buttonEl.addEventListener('click', function() {
+    console.log('Initializing replay')
+    init()
+})
 
-// console.log(board[0][0])
-
-/*----- event listeners -----*/
-// Clicking on a board item changes that board item to X:
-
-
-// boardItemEls.addEventListener('click', function(event) {
-//     let turn = 'X'
-//     makeMove(event)
-// })
 
 /*----- functions -----*/
 // function addX(event) {
@@ -82,14 +74,20 @@ function makeMove(event) {
     console.log(coords)
     let x = coords[0]
     let y = coords[1]
-    // console.log(turn)
-    if (turn === 'X') {
-        board[x][y] = 'X'
-        turn = 'O'
+    console.log(turn)
+    if (board[x][y] !== null) {
         return
     } else {
-        board[x][y] = 'O'
-        turn = 'X'
+        if (turn === 'X') {
+            board[x][y] = 'X'
+            turn = 'O'
+            changeTurn()
+            return
+        } else {
+            board[x][y] = 'O'
+            turn = 'X'
+            changeTurn()
+        }
     }
 }
 
@@ -107,13 +105,19 @@ function render(event) {
     })
 }
 
-console.log(board)
+function init() {
+    board = [
+        [null, null, null],
+        [null, null, null],
+        [null, null, null],
+    ]
+    turn = 'X'
+    changeTurn()
+    render()
+}
+
+function changeTurn() {
+    turnEl.innerHTML = `It is ${turn}'s turn.`    
+}
+
 render()
-
-
-//     board.forEach(function(row, x) {
-//     row.forEach(function(square, y {
-//         console.log(board[x][y])
-//         // fill in that element with the value in the array
-//     }))
-// })

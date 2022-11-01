@@ -1,7 +1,8 @@
 body {
-    width:100vw;
-    height:100vh;
+    height:70px;
     position: relative;
+    text-align: center;
+    background-color: antiquewhite;
 }
 
 h1 {
@@ -12,7 +13,7 @@ h1 {
 
 .board {
     display: grid;
-    position: absolute; 
+    position: relative; 
     left: 0; 
     right: 0; 
     margin-left: auto; 
@@ -33,12 +34,20 @@ h1 {
     cursor: pointer;
 }
 
-button {
-    position: fixed;
+h2 {
+    color: cornflowerblue;
+    font-size: 40px;
     text-align: center;
+}
+
+button {
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
     border: none;
     border-radius: 15px;
     color: white;
     background-color: darkred;
     font-size: 50px;
+    cursor: pointer;
 }
